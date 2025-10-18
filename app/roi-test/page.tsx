@@ -21,7 +21,7 @@ export default function RoiApiTest() {
       return;
     }
     setLog('Calling /api/roi/compute ...');
-    const selections = { a:6, b:4, g:3, PlanFee:2, L:4, n:5, d:3 }; // sample options
+    const selections = { a:6, b:4, g:3, PlanFee:2, L:4, n:5, d:3 };
     const res = await fetch('/api/roi/compute', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -33,7 +33,7 @@ export default function RoiApiTest() {
 
   return (
     <div style={{ padding: 24, fontFamily: 'system-ui, Arial' }}>
-      <h1>ROI API Test</h1>
+      <h1>ROI API Test • Live</h1>
       <p>This page POSTs to your API endpoints.</p>
       <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>
         <button onClick={fetchQuestions}>Fetch Questions</button>
