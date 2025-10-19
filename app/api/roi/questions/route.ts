@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { QUESTIONS } from "../_lib/questions";
+import { QUESTIONS_V231 as QUESTIONS } from "../_lib/questions";
 import { CONTROLLER_VERSION, SAFE_EXEC_TOKEN, REQUIRED_KBS } from "../_lib/constants";
 
 export async function POST() {
