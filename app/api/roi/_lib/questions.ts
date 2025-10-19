@@ -1,138 +1,145 @@
-export const QUESTIONS = [
+export const QUESTIONS_V231 = [
   {
-    idx: 1,
-    title: "Average Check Size (per Guest)",
-    why: "Your average check is the foundation of the ROI model — every lift multiplies across it.",
-    prompt: "What is your restaurant’s typical check size per customer (including food and beverages)?",
-    tip: "Most casual restaurants range between $25–$50 per guest. If your menu includes alcohol or premium items, lean toward the higher range.",
-    optionsHeader: "**Options (reply 1–10):**",
+    idx: 0,
+    title: "Q1 — Average check size per guest",
+    why: "Your average check size helps determine the base revenue per guest before applying loyalty or visit frequency effects.",
+    prompt:
+      "Enter your average check per guest, including food and beverages. This is the typical total before taxes or tips.",
+    tip: "If unsure, use $25–$35 for casual dining or $40–$60 for upscale.",
+    optionsHeader: "Select the closest average check size per guest:",
     options: [
-      "1) $10 — Quick serve / coffee bar",
-      "2) $15 — Light fare / snacks",
-      "3) $20 — Fast casual",
-      "4) $25 — Entry casual dining",
-      "5) $30 — Typical casual dining",
-      "6) $35 — Casual dining (most common)",
-      "7) $40 — Mid-casual",
-      "8) $50 — Upscale casual",
-      "9) $60 — Higher casual / bistro",
-      "10) $75 — Premium / fine dining"
+      "1 — $10 (Quick serve / coffee bar)",
+      "2 — $15 (Light fare / snacks)",
+      "3 — $20 (Fast casual)",
+      "4 — $25 (Entry casual dining)",
+      "5 — $30 (Typical casual dining)",
+      "6 — $35 (Casual dining — most common)",
+      "7 — $40 (Mid-casual)",
+      "8 — $50 (Upscale casual)",
+      "9 — $60 (Higher casual / bistro)",
+      "10 — $75 (Premium / fine dining)"
     ],
     var: "a",
-    range: [1,10]
+    range: [1, 10]
+  },
+  {
+    idx: 1,
+    title: "Q2 — Average monthly guest count",
+    why: "This determines your total monthly traffic volume and baseline opportunity for loyalty-driven lift.",
+    prompt:
+      "Enter the approximate number of guests you serve per month (not total tickets). This helps calculate your total loyalty reach potential.",
+    tip: "Estimate the number of unique guests, not tickets — many guests visit multiple times per month.",
+    optionsHeader: "Roughly how many unique guests do you serve each month?",
+    options: [
+      "1 — 100 (Small café or boutique)",
+      "2 — 200 (Light traffic)",
+      "3 — 300 (Typical single-unit restaurant)",
+      "4 — 400 (Busy casual dining)",
+      "5 — 500 (Moderate volume)",
+      "6 — 750 (Strong foot traffic)",
+      "7 — 1,000 (Popular location)",
+      "8 — 2,000 (Very high traffic)",
+      "9 — 3,000 (Multi-unit operator)",
+      "10 — 5,000 (Large venue / major brand)"
+    ],
+    var: "b",
+    range: [1, 10]
   },
   {
     idx: 2,
-    title: "Average Weekly Guest Volume [WEEKLY_LOCKED]",
-    why: "This represents the number of individual guests you serve each week. It defines your baseline scale and determines how revenue lift compounds over time.",
-    prompt: "On average, how many guests (unique customers) visit your restaurant **per week**?",
-    tip: "Include dine-in, takeout, and delivery customers. For multi-location brands, estimate per location.",
-    optionsHeader: "**Options (reply 1–10):**",
+    title: "Q3 — Typical operating margin range",
+    why: "This determines your baseline profitability before factoring in loyalty-driven lift or reactivation gains.",
+    prompt:
+      "Select the range that best represents your restaurant’s operating margin — your profit after food, labor, and overhead costs. This helps estimate your net profit lift from loyalty-driven sales.",
+    tip: "If unsure, select 55–60%. That’s typical for most casual dining operators.",
+    optionsHeader: "What is your approximate operating margin before loyalty impact?",
     options: [
-      "1) 100 — Small café or boutique",
-      "2) 200 — Light traffic",
-      "3) 300 — Typical single-unit restaurant",
-      "4) 400 — Busy casual dining",
-      "5) 500 — Moderate volume",
-      "6) 750 — Strong foot traffic",
-      "7) 1,000 — Popular location",
-      "8) 2,000 — Very high traffic",
-      "9) 3,000 — Multi-unit operator",
-      "10) 5,000 — Large venue / major brand"
+      "1 — 45% (Low margin / pizza / QSR)",
+      "2 — 50% (Baseline casual)",
+      "3 — 55% (Lean casual)",
+      "4 — 60% (Typical casual)",
+      "5 — 65% (Higher casual / efficient ops)",
+      "6 — 70% (Very lean or high-end)",
+      "7 — 75% (Exceptional control)"
     ],
-    var: "b",
-    range: [1,10]
+    var: "g",
+    range: [1, 7]
   },
   {
     idx: 3,
-    title: "Gross Margin (%)",
-    why: "Margin amplifies the impact of loyalty lift — higher margins convert revenue into profit more efficiently.",
-    prompt: "What is your average gross margin (food + beverage)?",
-    tip: null,
-    optionsHeader: "**Options (reply 1–7):**",
+    title: "Q4 — Select your loyalty plan level",
+    why: "This defines your estimated plan fee and SMS allowance, which influence your total ROI. It also helps model your customer database growth based on list size.",
+    prompt:
+      "Choose the plan that best fits your restaurant’s size and customer volume. Each plan includes a monthly SMS allowance for loyalty messages and reactivation campaigns.\n\nIf you don’t currently have a customer database, that’s perfectly fine — many restaurants don’t. That’s one of the biggest advantages of BookedTables: it builds your textable customer list automatically as guests scan your QR code and join your loyalty program.",
+    tip: "If you’re not sure, start with Plan 1. It’s ideal for single-location restaurants growing their first database.",
+    optionsHeader: "Which plan level most closely matches your customer list size and messaging needs?",
     options: [
-      "1) 45% — Low margin / pizza / QSR",
-      "2) 50% — Baseline casual",
-      "3) 55% — Lean casual",
-      "4) 60% — Typical casual",
-      "5) 65% — Higher casual / efficient ops",
-      "6) 70% — Very lean or high-end",
-      "7) 75% — Exceptional control"
+      "$599 / month — Starter (includes ~1,400 SMS; ideal for up to 999 contacts)",
+      "$999 / month — Growth (includes ~2,800 SMS; 1,000–1,999 contacts)",
+      "$1,599 / month — Pro (includes ~4,300 SMS; 2,000–2,999 contacts)",
+      "$2,199 / month — Enterprise (includes ~5,700 SMS; 3,000–4,999 contacts)"
     ],
-    var: "g",
-    range: [1,7]
+    var: "PlanFee",
+    range: [1, 4]
   },
   {
     idx: 4,
-    title: "Loyalty or CRM Plan Fee (Monthly)",
-    why: "This represents your estimated cost for the loyalty or reactivation platform. It’s automatically deducted from your net ROI, so accuracy here makes your projection realistic.",
-    prompt: "Which plan tier or equivalent do you use (or plan to use) for your loyalty program?",
-    tip: null,
-    optionsHeader: "**Options (reply 1–4):**",
+    title: "Q5 — Estimate your average loyalty lift per visit",
+    why: "This measures how much more loyalty members spend compared to regular guests, reflecting higher check averages and order behavior.",
+    prompt:
+      "Loyalty guests tend to spend more — even when redeeming a discount. They often add appetizers, drinks, or desserts, and return more frequently. Industry data shows loyalty members spend **10–15% more per visit**, with some operators seeing lifts of 20% or higher once engagement deepens.",
+    tip: "If you’re new to loyalty, choose 10–15%. Established programs often see 15–25%+ lift.",
+    optionsHeader: "How much more do loyalty members spend on average compared to regular guests?",
     options: [
-      "1) $599 / month — Starter (includes ~1,400 SMS; ideal for single locations)",
-      "2) $999 / month — Growth (includes ~2,800 SMS; for higher guest counts)",
-      "3) $1,599 / month — Pro (includes ~4,300 SMS; optimized for steady growth)",
-      "4) $2,199 / month — Enterprise (includes ~5,700 SMS; best for large operators)"
+      "1 — 5% (minimal lift)",
+      "2 — 10% (conservative estimate)",
+      "3 — 15% (balanced average)",
+      "4 — 20% (typical BookedTables lift)",
+      "5 — 25% (strong engagement program)",
+      "6 — 30%+ (high loyalty maturity)"
     ],
-    var: "PlanFee",
-    range: [1,4]
+    var: "L",
+    range: [1, 6]
   },
   {
     idx: 5,
-    title: "Blended Revenue Lift (%)",
-    why: "Represents the combined impact of increased visit frequency and higher check sizes among loyalty members.",
-    prompt: "Based on your experience or expectations, what overall % revenue lift feels achievable from active loyalty participation?",
-    tip: null,
-    optionsHeader: "**Options (reply 1–10):**",
+    title: "Q6 — Estimate your expected loyalty participation rate",
+    why: "This measures how many of your guests are — or will be — engaging with your loyalty program by joining, redeeming offers, or responding to messages. Even if you don’t have a program yet, this question helps estimate your potential participation rate once guests can join instantly through BookedTables.",
+    prompt:
+      "If you already have a loyalty program, think about what percentage of guests participate or return because of rewards or messages.\n\nIf you don’t have one yet, here’s what’s typical: **BookedTables users see about 9 in 10 guests (90%) opt in** when scanning a QR code for an instant 10% discount. Of those, **around 30–60% stay active** within a few months — a far higher engagement rate than old-fashioned punch cards or apps.\n\nTo model your ROI, select the level that best reflects your current or expected loyalty participation.",
+    tip: "If you’re not running loyalty yet, choose 25–35%. That’s a realistic early estimate for restaurants using BookedTables QR signups.",
+    optionsHeader: "How many of your guests do you think would engage with your loyalty program once offered?",
     options: [
-      "1) 5% — Conservative lift (steady but modest improvement)",
-      "2) 10% — Typical baseline (standard for most casual concepts)",
-      "3) 15% — Moderate growth (healthy participation)",
-      "4) 20% — Strong growth (solid loyalty execution)",
-      "5) 25% — High performer (well-managed guest engagement)",
-      "6) 30% — Exceptional (aggressive promotion + consistent retention)"
+      "1 — Around 10% (just starting or very new program)",
+      "2 — About 20% (building awareness)",
+      "3 — Around 30% (early BookedTables average)",
+      "4 — About 40% (strong early adoption)",
+      "5 — Around 50% (steady engagement after a few months)",
+      "6 — About 60% (well-established loyalty program)",
+      "7 — Around 70% (top-performing restaurants with strong repeat base)",
+      "8 — 80% or more (exceptional engagement — typical of multi-location or high-volume operators)"
     ],
-    var: "L",
-    range: [1,10]
+    var: "n",
+    range: [1, 8]
   },
   {
     idx: 6,
-    title: "Weekly New Customers (New Sign-ups)",
-    why: "New members represent new opportunities for ongoing revenue — every signup adds recurring potential to future months.",
-    prompt: null,
-    tip: null,
-    optionsHeader: "**Options (reply 1–8):**",
+    title: "Q7 — Estimate your average loyalty reward or discount value",
+    why: "This measures how much you typically give back to loyal customers through rewards, discounts, or comped items. Think of it as a smart reinvestment in repeat business — a loyalty budget that earns measurable returns, not a cost that disappears after one ad run.",
+    prompt:
+      "Traditional marketing — like print coupons, paid ads, or delivery app promos — often produces only a short-term bump in traffic. Once the promotion ends, the results fade and the cost repeats.\n\nBookedTables takes the opposite approach: it creates **ongoing customer return cycles** that compound over time. Because each offer targets guests who already know and like your restaurant, every reward builds long-term loyalty instead of one-shot advertising spikes.\n\nMost restaurants find that offering **10–20% loyalty value** keeps customers returning while protecting margins. High-growth operators may offer more for short bursts, but the best results come from balance and consistency.",
+    tip: "If you’re not sure, start with 10–15%. That’s the most common and sustainable range for BookedTables loyalty users.",
+    optionsHeader: "On average, what value or discount do you plan to offer to loyal customers when they redeem a reward?",
     options: [
-      "1) 5 — Very low flow",
-      "2) 10 — Low flow",
-      "3) 15 — Steady",
-      "4) 20 — Typical",
-      "5) 25 — Healthy",
-      "6) 30 — Strong",
-      "7) 40 — Very strong",
-      "8) 50 — Exceptional"
-    ],
-    var: "n",
-    range: [1,8]
-  },
-  {
-    idx: 7,
-    title: "Loyalty Reward Level (Discount / Reward %)",
-    why: "A well-balanced reward level keeps members engaged without over-discounting — the goal is loyalty, not giveaway.",
-    prompt: "What % of loyalty sales do you reinvest into rewards or customer incentives?",
-    tip: "The most profitable range is usually between 10–20%. Even modest rewards can drive frequent repeat visits.",
-    optionsHeader: "**Options (reply 1–7):**",
-    options: [
-      "1) 5% — Very low incentive (budget-focused)",
-      "2) 10% — Low incentive (steady engagement)",
-      "3) 15% — Balanced baseline (healthy ROI)",
-      "4) 20% — Aggressive promo (growth oriented)",
-      "5) 25% — Very aggressive (rapid growth / lower margin)",
-      "6) 30% — Extreme (short-term push)",
-      "7) 35% — Rare / unsustainable long-term"
+      "1 — Around 5% (very low incentive, budget-focused)",
+      "2 — About 10% (steady engagement, conservative reward)",
+      "3 — Around 15% (balanced baseline, healthy ROI)",
+      "4 — About 20% (growth-focused promotion level)",
+      "5 — Around 25% (aggressive incentive, short-term lift)",
+      "6 — About 30% (very aggressive offer, limited-time campaigns)",
+      "7 — 35% or higher (rare — unsustainable long-term for most restaurants)"
     ],
     var: "d",
-    range: [1,7]
+    range: [1, 7]
   }
-] as const;
+];
