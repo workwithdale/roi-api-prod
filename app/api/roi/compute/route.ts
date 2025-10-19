@@ -9,7 +9,7 @@ import {
   REQUIRED_KBS,
 } from "../_lib/constants";
 import { computeEngine } from "../_lib/engine";
-import { renderMarkdown } from "../_lib/template";
+import { renderMarkdown, buildCommentary } from "../_lib/template"; // ✅ added buildCommentary import
 import { runSmokeTest } from "../_lib/smoke";
 
 export async function POST(req: Request) {
@@ -89,6 +89,22 @@ export async function POST(req: Request) {
 
   const markdown = renderMarkdown(rv);
 
+  // ✅ Added commentary section
+  const numbers = {
+    baseline: (rv as any).Baseline,
+    loyaltyGP: (rv as any).LoyaltyGP,
+    cohortGP: (rv as any).CohortGP,
+    combinedNetM1: (rv as any).CombinedNet_M1,
+    monthTable: (rv as any).MonthTable,
+    cumulative: {
+      m3: (rv as any).Cumulative3,
+      m6: (rv as any).Cumulative6,
+      m12: (rv as any).Cumulative12,
+    },
+  };
+
+  const commentary = buildCommentary(numbers); // ✅ new call
+
   return NextResponse.json({
     markdown: {
       snapshot: markdown
@@ -102,19 +118,9 @@ export async function POST(req: Request) {
       growth:
         "## 📈 GROWTH OVER TIME" +
         markdown.split("## 📈 GROWTH OVER TIME")[1],
+      commentary, // ✅ include commentary in the JSON
     },
-    numbers: {
-      baseline: (rv as any).Baseline,
-      loyaltyGP: (rv as any).LoyaltyGP,
-      cohortGP: (rv as any).CohortGP,
-      combinedNetM1: (rv as any).CombinedNet_M1,
-      monthTable: (rv as any).MonthTable,
-      cumulative: {
-        m3: (rv as any).Cumulative3,
-        m6: (rv as any).Cumulative6,
-        m12: (rv as any).Cumulative12,
-      },
-    },
+    numbers,
     provenance: {
       controllerVersion: CONTROLLER_VERSION,
       engineFingerprint: ENGINE_FINGERPRINT,
