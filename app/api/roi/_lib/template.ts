@@ -68,7 +68,9 @@ They already include estimated program costs and reward redemptions, giving you 
 
 These figures are powered by the **BookedTables™ loyalty platform** and are modeled on verified performance data across active restaurant operators.  
 
----`;
+---
+
+`; // keep this semicolon and blank line
 
   const analysis = `### 📊 Program Performance Insights
 
@@ -83,7 +85,9 @@ These figures are powered by the **BookedTables™ loyalty platform** and are mo
   
 • With retention rates typical of **BookedTables’** data network, this compounding model stays within the safe profit-to-discount ratio range — a sign of strong long-term sustainability.  
 
----`;
+---
+
+`; 
 
   const audit = `### ✅ ROI Health Check
 
