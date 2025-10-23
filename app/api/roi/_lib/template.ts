@@ -112,7 +112,9 @@ To explore your potential return in detail, connect with a **BookedTables™ ROI
 
 They’ll help you optimize campaign timing, SMS engagement, and member segmentation to **sustain and amplify** these results month after month.  
 
-🌐 Learn more at [BookedTables.com](https://bookedtables.com) — your hub for restaurant growth, loyalty insights, and ROI optimization tools.  
+---
+
+🌐 **Learn more at [BookedTables.com](https://bookedtables.com)** — your hub for restaurant growth, loyalty insights, and ROI optimization tools.  
 
 ---
 
@@ -123,6 +125,3 @@ They’ll help you optimize campaign timing, SMS engagement, and member segmenta
 📤 Name the file something like *Restaurant-ROI-Results.pdf* and save it to your desktop or folder — perfect for sharing by email or team review.  
 
 ---`;
-
-  return { context, analysis, audit, cta };
-}
