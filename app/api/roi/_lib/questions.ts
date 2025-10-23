@@ -85,25 +85,25 @@ export const QUESTIONS_V231 = [
     var: "PlanFee",
     range: [1, 4]
   },
-  {
-    idx: 4,
-    title: "Q5 — Estimate your average loyalty lift per visit",
-    why: "This measures how much more loyalty members spend compared to regular guests, reflecting higher check averages and order behavior.",
-    prompt:
-      "Loyalty guests tend to spend more — even when redeeming a discount. They often add appetizers, drinks, or desserts, and return more frequently. Industry data shows loyalty members spend **10–15% more per visit**, with some operators seeing lifts of 20% or higher once engagement deepens.",
-    tip: "If you’re new to loyalty, choose 10–15%. Established programs often see 15–25%+ lift.",
-    optionsHeader: "How much more do loyalty members spend on average compared to regular guests?",
-    options: [
-      "1 — 5% (minimal lift)",
-      "2 — 10% (conservative estimate)",
-      "3 — 15% (balanced average)",
-      "4 — 20% (typical BookedTables lift)",
-      "5 — 25% (strong engagement program)",
-      "6 — 30%+ (high loyalty maturity)"
-    ],
-    var: "L",
-    range: [1, 6]
-  },
+{
+  idx: 4,
+  title: "Q5 — Estimate your average loyalty lift per visit",
+  why: "This measures how much more loyalty members spend compared to regular guests, reflecting higher check averages and order behavior.",
+  prompt:
+    "Loyalty guests tend to spend more — even when redeeming a discount. They often add appetizers, drinks, or desserts, and return more frequently. Industry data shows loyalty members spend **10–15% more per visit**, with some operators seeing lifts of 20% or higher once engagement deepens.\n\n💬 **Reminder:** Choose the option number that matches your estimated loyalty lift, not the percentage itself.",
+  tip: "If you’re new to loyalty, choose 10–15%. Established programs often see 15–25%+ lift.",
+  optionsHeader: "How much more do loyalty members spend on average compared to regular guests?",
+  options: [
+    "1 — 5% (minimal lift)",
+    "2 — 10% (conservative estimate)",
+    "3 — 15% (balanced average)",
+    "4 — 20% (typical BookedTables lift)",
+    "5 — 25% (strong engagement program)",
+    "6 — 30%+ (high loyalty maturity)"
+  ],
+  var: "L",
+  range: [1, 6]
+},
   {
     idx: 5,
     title: "Q6 — Estimate your expected loyalty participation rate",
