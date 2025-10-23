@@ -90,7 +90,11 @@ Your ROI results demonstrate how ongoing engagement — not one-time ads — dri
 Unlike traditional marketing spend that stops when the ad stops, loyalty creates a **self-reinforcing growth cycle** where each visit strengthens the next.  
 
 To explore your potential return in detail, connect with a **BookedTables™ ROI Specialist** or review your loyalty dashboard analytics.  
-They’ll help you optimize campaign timing, SMS engagement, and member segmentation to **sustain and amplify** these results month after month.`;
+They’ll help you optimize campaign timing, SMS engagement, and member segmentation to **sustain and amplify** these results month after month.  
+
+🌐 **Learn more at [BookedTables.com](https://bookedtables.com)** — your hub for restaurant growth, loyalty insights, and ROI optimization tools.`;
 
   return { context, analysis, audit, cta };
 }
+
+
